@@ -1,0 +1,149 @@
+.advantages {
+    width: 100%;
+    padding: 100px 0 0;
+    background: #000;
+    scroll-margin-top: 80px;
+}
+
+.advantages-container {
+    width: 1242px;
+    margin: 0 auto;
+}
+
+.advantages-heading {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.advantages-heading h2 {
+    margin: 0;
+    font-size: 32px;
+    line-height: 1.15;
+    font-weight: 600;
+}
+
+.advantages-heading p {
+    margin: 14px 0 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #9a9a9a;
+}
+
+.advantages-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.advantages-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #101313;
+    flex: 0 0 auto;
+    transform-origin: center;
+    transition:
+        transform .4s cubic-bezier(.22,1,.36,1),
+        box-shadow .4s ease;
+    will-change: transform;
+}
+
+.advantages-card:hover {
+    transform: scale(1.018);
+    z-index: 3;
+    box-shadow: 0 18px 50px rgba(0, 255, 190, .12);
+}
+
+.advantages-card-large {
+    width: 613px;
+    height: 402px;
+}
+
+.advantages-card-small {
+    width: 403.33px;
+    height: 402px;
+}
+
+.advantages-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .45s cubic-bezier(.22,1,.36,1);
+}
+
+.advantages-card:hover .advantages-image {
+    transform: scale(1.018);
+}
+
+.advantages-content {
+    position: absolute;
+    z-index: 1;
+    left: 34px;
+    right: 34px;
+    bottom: 34px;
+    transition: transform .4s cubic-bezier(.22,1,.36,1);
+}
+
+.advantages-card:hover .advantages-content {
+    transform: scale(1.018);
+}
+
+.advantages-content h3 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 0;
+    color: #fff;
+    font-size: 24px;
+    line-height: 1.15;
+    font-weight: 600;
+}
+
+.advantages-content h3 img {
+    width: 24px;
+    height: 24px;
+    margin: 0 6px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.advantages-content p {
+    margin: 12px 0 0;
+    color: #b7b7b7;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+@media (max-width: 768px) {
+    .advantages {
+        padding: 80px 16px;
+    }
+
+    .advantages-container {
+        width: 100%;
+    }
+
+    .advantages-grid {
+        flex-direction: column;
+    }
+
+    .advantages-card-large,
+    .advantages-card-small {
+        width: 100%;
+        height: 402px;
+    }
+
+    .advantages-heading h2 {
+        font-size: 26px;
+    }
+
+    .advantages-content {
+        left: 24px;
+        right: 24px;
+        bottom: 24px;
+    }
+}
