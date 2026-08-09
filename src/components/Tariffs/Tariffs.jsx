@@ -99,16 +99,21 @@ function RegionFilter() {
 }
 
 function Tariffs() {
+    const [serverType, setServerType] = useState("virtual");
+    const [currency, setCurrency] = useState("rubles");
+    const [processor, setProcessor] = useState("AMD");
+    const [serverMode, setServerMode] = useState("PROMO");
+
     return (
         <section className="tariffs" id="tariffs">
             <div className="tariffs-container">
                 <div className="tariffs-heading"><h2>Наши тарифы</h2><p>Выберите тот тариф, который подходит именно вам</p></div>
                 <div className="tariffs-tabs">
-                    <button className="tariffs-tab active"><img src="src/assets/tariffs/virtual-servers.png" alt="" />Виртуальные сервера</button>
-                    <button className="tariffs-tab"><img src="src/assets/tariffs/dedicated-servers.png" alt="" />Выделенные сервера</button>
+                    <button className={`tariffs-tab ${serverType === "virtual" ? "active" : ""}`} onClick={() => setServerType("virtual")}><img src="src/assets/tariffs/virtual-servers.png" alt="" />Виртуальные сервера</button>
+                    <button className={`tariffs-tab ${serverType === "dedicated" ? "active" : ""}`} onClick={() => setServerType("dedicated")}><img src="src/assets/tariffs/dedicated-servers.png" alt="" />Выделенные сервера</button>
                     <span className="tariffs-divider" />
-                    <button className="tariffs-tab tariffs-tab-small"><img src="src/assets/tariffs/euro.png" alt="" />Евро</button>
-                    <button className="tariffs-tab tariffs-tab-small active-currency"><img src="src/assets/tariffs/ruble.png" alt="" />Рубли</button>
+                    <button className={`tariffs-tab tariffs-tab-small ${currency === "euro" ? "active" : ""}`} onClick={() => setCurrency("euro")}><img src="src/assets/tariffs/euro.png" alt="" />Евро</button>
+                    <button className={`tariffs-tab tariffs-tab-small ${currency === "rubles" ? "active" : ""}`} onClick={() => setCurrency("rubles")}><img src="src/assets/tariffs/ruble.png" alt="" />Рубли</button>
                     <button className="tariffs-reset"><img src="src/assets/tariffs/reset.png" alt="" />Сбросить фильтры</button>
                 </div>
                 <hr className="tariffs-divider-line" />
@@ -119,9 +124,19 @@ function Tariffs() {
                 </div>
                 <div className="tariffs-filters">
                     <RegionFilter />
-                    <FilterBox title="Тип дисков" titleIcon="src/assets/tariffs/disk-type.png"><button className="tariffs-chip" type="button">SSD NVMe</button></FilterBox>
-                    <FilterBox title="Тип процессора" titleIcon="src/assets/tariffs/processor.png"><div className="tariffs-chip-row"><button className="tariffs-chip" type="button">AMD<img className="tariffs-chip-remove" src="src/assets/tariffs/cross.png" alt="" /></button><button className="tariffs-chip tariffs-chip-muted" type="button">Intel</button></div></FilterBox>
-                    <FilterBox title="Тип сервера" titleIcon="src/assets/tariffs/server-type.png"><div className="tariffs-chip-row"><button className="tariffs-chip" type="button">PROMO<img className="tariffs-chip-remove" src="src/assets/tariffs/cross.png" alt="" /></button><button className="tariffs-chip tariffs-chip-muted" type="button">HI-PERF</button></div></FilterBox>
+                    <FilterBox title="Тип дисков" titleIcon="src/assets/tariffs/disk-type.png"><button className="tariffs-chip active" type="button">SSD NVMe</button></FilterBox>
+                    <FilterBox title="Тип процессора" titleIcon="src/assets/tariffs/processor.png">
+                        <div className="tariffs-chip-row">
+                            <button className={`tariffs-chip ${processor === "AMD" ? "active" : "tariffs-chip-muted"}`} type="button" onClick={() => setProcessor("AMD")}>AMD{processor === "AMD" && <img className="tariffs-chip-remove" src="src/assets/tariffs/cross.png" alt="" />}</button>
+                            <button className={`tariffs-chip ${processor === "Intel" ? "active" : "tariffs-chip-muted"}`} type="button" onClick={() => setProcessor("Intel")}>Intel{processor === "Intel" && <img className="tariffs-chip-remove" src="src/assets/tariffs/cross.png" alt="" />}</button>
+                        </div>
+                    </FilterBox>
+                    <FilterBox title="Тип сервера" titleIcon="src/assets/tariffs/server-type.png">
+                        <div className="tariffs-chip-row">
+                            <button className={`tariffs-chip ${serverMode === "PROMO" ? "active" : "tariffs-chip-muted"}`} type="button" onClick={() => setServerMode("PROMO")}>PROMO{serverMode === "PROMO" && <img className="tariffs-chip-remove" src="src/assets/tariffs/cross.png" alt="" />}</button>
+                            <button className={`tariffs-chip ${serverMode === "HI-PERF" ? "active" : "tariffs-chip-muted"}`} type="button" onClick={() => setServerMode("HI-PERF")}>HI-PERF{serverMode === "HI-PERF" && <img className="tariffs-chip-remove" src="src/assets/tariffs/cross.png" alt="" />}</button>
+                        </div>
+                    </FilterBox>
                     <FilterBox title="Цена" titleIcon="src/assets/tariffs/price.png" className="tariffs-price-filter"><div className="tariffs-price-inputs"><PriceInput label="От" placeholder="0" /><PriceInput label="До" placeholder="5000" /></div></FilterBox>
                 </div>
                 <div className="tariffs-cards">{plans.map((plan, index) => <PlanCard plan={plan} key={`${plan.name}-${index}`} />)}</div>
