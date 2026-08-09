@@ -58,7 +58,7 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
-  width: fit-content;
+  width: 391.43px;
   height: 57px;
   padding: 5px;
   list-style: none;
@@ -70,7 +70,7 @@
                   rgba(255,242,242,.03) 100%
           ),
           rgba(0,0,0,.55);
-  border: 1px solid rgba(255,255,255,.22);
+  border: 1px solid rgba(255,255,255,.16);
   backdrop-filter: blur(110px);
   -webkit-backdrop-filter: blur(110px);
   box-sizing: border-box;
@@ -79,7 +79,7 @@
 
 .menu-indicator {
   position: absolute;
-  top: 5px;
+  top: 4px;
   left: 0;
   height: 47px;
   border-radius: 328px;
@@ -104,10 +104,35 @@
   pointer-events: none;
 }
 
-.menu > li:not(.menu-indicator) {
+.menu-underline {
+  position: absolute;
+  left: 0;
+  bottom: 9px;
+  width: 9px;
+  height: 2px;
+  border-radius: 2px;
+  background: #3FFFD1;
+  box-shadow: 0 0 8px rgba(63,255,209,.45);
+  opacity: 0;
+  transform: translateX(0);
+  transition:
+          left .55s cubic-bezier(.22,1,.36,1),
+          opacity .18s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.menu-underline.is-visible {
+  left: calc(var(--underline-left, 0px));
+  opacity: 1;
+}
+
+.menu > li:not(.menu-indicator):not(.menu-underline) {
   position: relative;
   z-index: 1;
   list-style: none;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .menu-link {
@@ -116,7 +141,8 @@
   align-items: center;
   justify-content: center;
   height: 47px;
-  min-width: 94px;
+  width: 100%;
+  min-width: 0;
   padding: 0 15px;
   border-radius: 328px;
   color: #BFC2C6;
@@ -134,16 +160,7 @@
 }
 
 .menu-link.active::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 9px;
-  transform: translateX(-50%);
-  width: 9px;
-  height: 2px;
-  border-radius: 2px;
-  background: #3FFFD1;
-  box-shadow: 0 0 8px rgba(63,255,209,.45);
+  display: none;
 }
 
 .header-actions {
@@ -193,5 +210,9 @@
   .navigation {
     position: static;
     transform: none;
+  }
+
+  .menu {
+    width: 100%;
   }
 }
