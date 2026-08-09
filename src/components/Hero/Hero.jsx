@@ -29,26 +29,11 @@ function Hero() {
                 alt=""
             />
 
-            <div className="hero-columns">
-
-                <img src="src/assets/columns/1.png" alt="" />
-                <img src="src/assets/columns/2.png" alt="" />
-                <img src="src/assets/columns/3.png" alt="" />
-                <img src="src/assets/columns/4.png" alt="" />
-                <img src="src/assets/columns/5.png" alt="" />
-                <img src="src/assets/columns/6.png" alt="" />
-                <img src="src/assets/columns/7.png" alt="" />
-                <img src="src/assets/columns/8.png" alt="" />
-                <img src="src/assets/columns/9.png" alt="" />
-                <img src="src/assets/columns/10.png" alt="" />
-                <img src="src/assets/columns/11.png" alt="" />
-                <img src="src/assets/columns/12.png" alt="" />
-                <img src="src/assets/columns/13.png" alt="" />
-                <img src="src/assets/columns/14.png" alt="" />
-                <img src="src/assets/columns/15.png" alt="" />
-                <img src="src/assets/columns/16.png" alt="" />
-
-            </div>
+            <img
+                className="hero-background"
+                src="src/assets/hero-background.png"
+                alt=""
+            />
 
             <div className="container">
 
@@ -98,12 +83,6 @@ function Hero() {
                 </div>
 
             </div>
-
-            <img
-                className="hero-glow"
-                src="src/assets/glow.png"
-                alt=""
-            />
 
             <img
                 className="hero-server"
