@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 930px;
+  min-height: 900px;
   overflow: hidden;
   background: #000;
   display: flex;
@@ -27,97 +27,18 @@
   text-align: center;
 }
 
-.hero-content h1 {
-  margin: 0;
-  color: #fff;
-  font-size: 78px;
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -3px;
-}
+.hero-content h1 { margin: 0; color: #fff; font-size: 78px; font-weight: 700; line-height: 1.08; letter-spacing: -3px; }
+.hero-title-row { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 8px; }
+.hero-icon { display: flex; align-items: center; justify-content: center; transform: translateY(6px); }
+.hero-icon img { width: 74px; height: 74px; object-fit: contain; }
+.hero-content p { width: 733px; margin-top: 30px; color: #C9C9C9; font-size: 18px; font-weight: 400; line-height: 1.55; text-align: center; }
+.hero-text-icon { display: inline-flex; align-items: center; justify-content: center; margin: 0 8px; }
+.lightning img { width: 20px; height: 20px; }
+.shield img { width: 14px; height: 18px; }
+.hero-btn { width: 182px; height: 48px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; margin-top: 30px; border: none; border-radius: 222px; cursor: pointer; color: #FFFFFF; font-size: 16px; font-weight: 600; background: linear-gradient(180deg, #4adda9 5%, #2f9171 45%, #11603f 100%); transition: .25s ease; }
+.hero-btn:hover { transform: translateY(-1px); filter: brightness(1.04); }
+.hero-btn:active { transform: translateY(1px); filter: brightness(.96); }
 
-.hero-title-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  margin-top: 8px;
-}
-
-.hero-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(6px);
-}
-
-.hero-icon img {
-  width: 74px;
-  height: 74px;
-  object-fit: contain;
-}
-
-.hero-content p {
-  width: 733px;
-  margin-top: 30px;
-  color: #C9C9C9;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.55;
-  text-align: center;
-}
-
-.hero-text-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 8px;
-}
-
-.lightning img {
-  width: 20px;
-  height: 20px;
-}
-
-.shield img {
-  width: 14px;
-  height: 18px;
-}
-
-.hero-btn {
-  width: 182px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  margin-top: 30px;
-  border: none;
-  border-radius: 222px;
-  cursor: pointer;
-  color: #FFFFFF;
-  font-size: 16px;
-  font-weight: 600;
-  background: linear-gradient(180deg, #4adda9 5%, #2f9171 45%, #11603f 100%);
-  transition: .25s ease;
-}
-
-.hero-btn:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.04);
-}
-
-.hero-btn:active {
-  transform: translateY(1px);
-  filter: brightness(.96);
-}
-
-/*
- * Единый фон из Figma.
- * В PNG уже находятся колонки и центральное свечение.
- * Края слегка затухают, чтобы изображение естественно уходило в чёрный фон.
- */
 .hero-background {
   position: absolute;
   left: 50%;
@@ -130,24 +51,8 @@
   pointer-events: none;
   user-select: none;
   object-fit: fill;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 0, 0, .35) 4%,
-    #000 10%,
-    #000 90%,
-    rgba(0, 0, 0, .35) 96%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 0, 0, .35) 4%,
-    #000 10%,
-    #000 90%,
-    rgba(0, 0, 0, .35) 96%,
-    transparent 100%
-  );
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 7%, rgba(0,0,0,.55) 14%, #000 22%, #000 78%, rgba(0,0,0,.55) 86%, rgba(0,0,0,.12) 93%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 7%, rgba(0,0,0,.55) 14%, #000 22%, #000 78%, rgba(0,0,0,.55) 86%, rgba(0,0,0,.12) 93%, transparent 100%);
 }
 
 .hero-server {
@@ -155,7 +60,7 @@
   width: 851px;
   height: 270px;
   left: 50%;
-  bottom: 150px;
+  bottom: 35px;
   transform: translateX(-50%);
   object-fit: contain;
   z-index: 8;
@@ -165,7 +70,7 @@
 .server-gradient {
   position: absolute;
   left: 50%;
-  bottom: 153px;
+  bottom: 38px;
   transform: translateX(-50%);
   width: 851px;
   height: auto;
@@ -174,94 +79,20 @@
   pointer-events: none;
 }
 
-.hero-lines-left {
-  position: absolute;
-  width: 338px;
-  height: 297px;
-  left: 0;
-  bottom: 300px;
-  object-fit: contain;
-  z-index: 7;
-  pointer-events: none;
-}
-
-.hero-lines-right {
-  position: absolute;
-  width: 310px;
-  height: 217px;
-  right: 0;
-  bottom: 400px;
-  object-fit: contain;
-  z-index: 7;
-  pointer-events: none;
-}
+.hero-lines-left { position: absolute; width: 338px; height: 297px; left: 0; bottom: 300px; object-fit: contain; z-index: 7; pointer-events: none; }
+.hero-lines-right { position: absolute; width: 310px; height: 217px; right: 0; bottom: 400px; object-fit: contain; z-index: 7; pointer-events: none; }
 
 @media (max-width: 768px) {
-  .hero {
-    min-height: 930px;
-  }
-
-  .container {
-    padding: 0 22px;
-  }
-
-  .hero-content {
-    width: 100%;
-    margin-top: 110px;
-  }
-
-  .hero-content h1 {
-    font-size: 34px;
-    line-height: 1.18;
-    letter-spacing: -1px;
-  }
-
-  .hero-icon img {
-    width: 48px;
-    height: 48px;
-  }
-
-  .hero-content p {
-    width: 100%;
-    margin-top: 26px;
-    font-size: 17px;
-    line-height: 1.55;
-  }
-
-  .hero-btn {
-    margin-top: 34px;
-    width: 185px;
-    height: 50px;
-  }
-
-  .hero-background {
-    width: max(100%, 900px);
-    max-width: none;
-    height: auto;
-    top: auto;
-    bottom: 0;
-  }
-
-  .hero-server {
-    width: 420px;
-    height: auto;
-    bottom: 60px;
-  }
-
-  .server-gradient {
-    width: 420px;
-    bottom: 80px;
-  }
-
-  .hero-lines-left {
-    width: 190px;
-    height: auto;
-    bottom: 180px;
-  }
-
-  .hero-lines-right {
-    width: 175px;
-    height: auto;
-    bottom: 240px;
-  }
+  .hero { min-height: 930px; }
+  .container { padding: 0 22px; }
+  .hero-content { width: 100%; margin-top: 110px; }
+  .hero-content h1 { font-size: 34px; line-height: 1.18; letter-spacing: -1px; }
+  .hero-icon img { width: 48px; height: 48px; }
+  .hero-content p { width: 100%; margin-top: 26px; font-size: 17px; line-height: 1.55; }
+  .hero-btn { margin-top: 34px; width: 185px; height: 50px; }
+  .hero-background { width: max(100%, 900px); max-width: none; height: auto; top: auto; bottom: 0; }
+  .hero-server { width: 420px; height: auto; bottom: 60px; }
+  .server-gradient { width: 420px; bottom: 80px; }
+  .hero-lines-left { width: 190px; height: auto; bottom: 180px; }
+  .hero-lines-right { width: 175px; height: auto; bottom: 240px; }
 }
