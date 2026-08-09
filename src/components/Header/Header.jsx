@@ -125,6 +125,8 @@ function Header() {
         });
     };
 
+    const underlineLeft = indicator.left + indicator.width / 2 - 4.5;
+
     return (
         <header className="header">
             <div className="container">
@@ -153,6 +155,7 @@ function Header() {
 
                         <span
                             className={`menu-underline ${underlineVisible ? "is-visible" : ""}`}
+                            style={{ left: `${underlineLeft}px` }}
                             aria-hidden="true"
                         />
 
