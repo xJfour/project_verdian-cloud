@@ -38,7 +38,7 @@ function Hero() {
             <div className="container">
 
                 <div className="hero-content">
-                    <h1>
+                    <h1 className="hero-title-desktop">
                         Современный хостинг
                         <br />
 
@@ -54,7 +54,17 @@ function Hero() {
                         </span>
                     </h1>
 
-                    <p>
+                    <h1 className="hero-title-mobile">
+                        Современный
+                        <br />
+                        хостинг
+                        <br />
+                        виртуальных
+                        <br />
+                        серверов
+                    </h1>
+
+                    <p className="hero-description-desktop">
                         Verdian Cloud предлагает
                         <span className="hero-text-icon lightning">
                             <img
@@ -73,6 +83,24 @@ function Hero() {
                         </span>
                         защищённые и масштабируемые серверы
                         для любых задач.
+                        Минимальные задержки.
+                    </p>
+
+                    <p className="hero-description-mobile">
+                        Verdian Cloud предлагает
+                        <span className="hero-text-icon lightning">
+                            <img src="src/assets/lightning.png" alt="" />
+                        </span>
+                        быстрые,
+                        <br />
+                        защищённые
+                        <span className="hero-text-icon shield">
+                            <img src="src/assets/shield.png" alt="" />
+                        </span>
+                        и масштабируемые
+                        <br />
+                        серверы для любых задач.
+                        <br />
                         Минимальные задержки.
                     </p>
 
