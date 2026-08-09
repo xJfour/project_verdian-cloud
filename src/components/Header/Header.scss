@@ -206,13 +206,120 @@
   margin: 0 auto;
 }
 
+.mobile-menu-toggle,
+.mobile-menu {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .navigation {
-    position: static;
-    transform: none;
+  .header {
+    padding: 18px 0;
   }
 
-  .menu {
-    width: 100%;
+  .header .container {
+    width: calc(100% - 32px);
+  }
+
+  .logo {
+    gap: 9px;
+  }
+
+  .logo img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .logo span {
+    font-size: 18px;
+  }
+
+  .navigation,
+  .header-actions {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    position: relative;
+    z-index: 1002;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 1px solid rgba(255,255,255,.04);
+    border-radius: 12px;
+    background: #18191b;
+  }
+
+  .mobile-menu-toggle span {
+    display: block;
+    width: 15px;
+    height: 2px;
+    border-radius: 2px;
+    background: #3FFFD1;
+    transition: transform .25s ease, opacity .2s ease;
+  }
+
+  .mobile-menu-toggle.is-open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .mobile-menu-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.is-open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: flex;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 16px;
+    left: 16px;
+    z-index: 1001;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+    background: rgba(10,12,12,.96);
+    box-shadow: 0 18px 45px rgba(0,0,0,.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(.98);
+    transform-origin: top right;
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .mobile-menu a {
+    display: flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 0 16px;
+    border-radius: 11px;
+    color: #bfc2c6;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color .2s ease, background .2s ease;
+  }
+
+  .mobile-menu a.active {
+    color: #fff;
+    background: rgba(63,255,209,.10);
   }
 }
