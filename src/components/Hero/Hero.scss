@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 1070px;
+  min-height: 930px;
   overflow: hidden;
   background: #000;
   display: flex;
@@ -115,10 +115,8 @@
 
 /*
  * Единый фон из Figma.
- * Размер и положение повторяют выделенный в Figma слой:
- * X = -261px, Y = 3px, W = 1962.48px, H = 899.39px.
- * При центрировании относительно страницы X автоматически получается
- * (viewport - 1962.48px) / 2, что соответствует исходному макету.
+ * В PNG уже находятся колонки и центральное свечение.
+ * Края слегка затухают, чтобы изображение естественно уходило в чёрный фон.
  */
 .hero-background {
   position: absolute;
@@ -131,6 +129,25 @@
   z-index: 2;
   pointer-events: none;
   user-select: none;
+  object-fit: fill;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, .35) 4%,
+    #000 10%,
+    #000 90%,
+    rgba(0, 0, 0, .35) 96%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, .35) 4%,
+    #000 10%,
+    #000 90%,
+    rgba(0, 0, 0, .35) 96%,
+    transparent 100%
+  );
 }
 
 .hero-server {
@@ -218,10 +235,11 @@
   }
 
   .hero-background {
-    width: 1962.48px;
-    height: 899.39px;
+    width: max(100%, 900px);
     max-width: none;
-    top: 3px;
+    height: auto;
+    top: auto;
+    bottom: 0;
   }
 
   .hero-server {
