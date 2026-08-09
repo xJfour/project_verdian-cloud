@@ -80,12 +80,270 @@
 .tariffs-card-button:active { transform: translateY(1px); }
 
 @media (max-width: 768px) {
-  .tariffs { padding: 70px 0 80px; }
-  .tariffs-container { width: calc(100% - 28px); }
-  .tariffs-heading h2 { font-size: 26px; }
-  .tariffs-heading p { font-size: 12px; }
-  .tariffs-tabs { flex-wrap: wrap; height: auto; }
-  .tariffs-reset { margin-left: 0; }
-  .tariffs-ranges,.tariffs-filters,.tariffs-cards { grid-template-columns: 1fr; }
-  .tariffs-range-box,.tariffs-filter-box,.tariffs-card { width: 100%; }
+  .tariffs {
+    padding: 0 0 64px;
+    scroll-margin-top: 70px;
+  }
+
+  .tariffs-container {
+    width: calc(100% - 40px);
+  }
+
+  .tariffs-heading {
+    margin-bottom: 22px;
+  }
+
+  .tariffs-heading h2 {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+
+  .tariffs-heading p {
+    max-width: 280px;
+    margin: 8px auto 0;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .tariffs-tabs {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tariffs-tab,
+  .tariffs-reset {
+    height: 36px;
+    min-height: 36px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+
+  .tariffs-tab:not(.tariffs-tab-small) {
+    flex: 0 0 calc(50% - 4px);
+    padding: 0 8px;
+  }
+
+  .tariffs-tab-small {
+    flex: 0 0 calc(50% - 4px);
+    width: auto;
+    padding: 0 8px;
+  }
+
+  .tariffs-tab img,
+  .tariffs-reset img {
+    width: 12px;
+    height: 12px;
+  }
+
+  .tariffs-divider {
+    display: none;
+  }
+
+  .tariffs-reset {
+    flex: 0 0 100%;
+    margin-left: 0;
+  }
+
+  .tariffs-divider-line {
+    margin: 8px 0;
+  }
+
+  .tariffs-ranges {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    margin-bottom: 8px;
+  }
+
+  .tariffs-range-box {
+    height: 59px;
+    padding: 8px 10px 6px;
+    border-radius: 9px;
+  }
+
+  .tariffs-range-top,
+  .tariffs-range-values {
+    font-size: 10px;
+  }
+
+  .tariffs-range-top span:first-child {
+    gap: 5px;
+  }
+
+  .tariffs-range-top img {
+    width: 11px;
+    height: 11px;
+  }
+
+  .tariffs-range-line {
+    height: 3px;
+    margin: 9px 0 5px;
+  }
+
+  .tariffs-range-dot {
+    width: 7px;
+    height: 7px;
+    border-width: 1.5px;
+  }
+
+  .tariffs-range-values {
+    font-size: 9px;
+  }
+
+  .tariffs-filters {
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-bottom: 30px;
+  }
+
+  .tariffs-filter-box {
+    height: 76px;
+    padding: 9px 10px 9px 10px;
+    border-radius: 9px;
+  }
+
+  .tariffs-filter-title {
+    gap: 5px;
+    height: 14px;
+    margin-bottom: 7px;
+    font-size: 10px;
+  }
+
+  .tariffs-filter-title img {
+    width: 11px;
+    height: 11px;
+  }
+
+  .tariffs-select,
+  .tariffs-chip {
+    min-height: 32px;
+    padding: 0 8px;
+    gap: 5px;
+    border-radius: 8px;
+    font-size: 10px;
+  }
+
+  .tariffs-select img:first-child {
+    width: 12px;
+    height: 12px;
+  }
+
+  .tariffs-select-arrow {
+    width: 9px;
+    height: 9px;
+  }
+
+  .tariffs-chip-row {
+    gap: 5px;
+  }
+
+  .tariffs-chip-remove {
+    width: 9px;
+    height: 9px;
+    flex-basis: 9px;
+  }
+
+  .tariffs-region-dropdown {
+    top: calc(100% + 4px);
+  }
+
+  .tariffs-region-option {
+    min-height: 28px;
+    font-size: 10px;
+  }
+
+  .tariffs-price-filter {
+    grid-column: 1 / -1;
+  }
+
+  .tariffs-price-inputs {
+    gap: 6px;
+  }
+
+  .tariffs-price-input {
+    height: 32px;
+    padding: 0 7px;
+    border-radius: 7px;
+  }
+
+  .tariffs-price-input > span,
+  .tariffs-price-field input {
+    font-size: 10px;
+  }
+
+  .tariffs-price-field img {
+    width: 10px;
+    height: 10px;
+    flex-basis: 10px;
+  }
+
+  .tariffs-cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .tariffs-card {
+    height: 410px;
+    padding: 12px 10px 10px;
+    border-radius: 9px;
+  }
+
+  .tariffs-card-head h3 {
+    font-size: 14px;
+  }
+
+  .tariffs-card-head > div:first-child span {
+    margin-top: 2px;
+    font-size: 9px;
+  }
+
+  .tariffs-price {
+    font-size: 14px;
+  }
+
+  .tariffs-price small {
+    font-size: 8px;
+  }
+
+  .tariffs-card-line {
+    margin: 9px 0;
+  }
+
+  .tariffs-features {
+    gap: 14px;
+  }
+
+  .tariffs-features li {
+    gap: 7px;
+  }
+
+  .tariffs-feature-icon {
+    flex-basis: 14px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .tariffs-features li div {
+    gap: 2px;
+  }
+
+  .tariffs-features li span:not(.tariffs-feature-icon) {
+    font-size: 9px;
+  }
+
+  .tariffs-features strong {
+    font-size: 10px;
+  }
+
+  .tariffs-flag {
+    width: 11px;
+    height: 11px;
+  }
+
+  .tariffs-card-button {
+    min-height: 29px;
+    border-radius: 6px;
+    font-size: 9px;
+  }
 }
