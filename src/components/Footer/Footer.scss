@@ -183,31 +183,116 @@
 @media (max-width: 700px) {
     .footer {
         min-height: auto;
-        padding: 50px 0;
+        padding: 34px 20px 28px;
     }
 
     .footer-container {
-        width: calc(100% - 32px);
-        grid-template-columns: 1fr;
-        gap: 40px;
+        width: 100%;
+        max-width: 335px;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 27px;
+    }
+
+    .footer-brand,
+    .footer-column {
+        width: 100%;
+        min-height: 0;
+        text-align: center;
     }
 
     .footer-brand {
-        min-height: auto;
+        align-items: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+        min-height: 28px;
+        gap: 8px;
+    }
+
+    .footer-logo img {
+        width: 28px;
+        height: 28px;
+        flex-basis: 28px;
+    }
+
+    .footer-logo span {
+        font-size: 18px;
+    }
+
+    .footer-description {
+        margin-top: 12px;
+        font-size: 10px;
+        line-height: 1.4;
     }
 
     .footer-copyright {
-        margin-top: 50px;
+        margin-top: 12px;
+        font-size: 9px;
+    }
+
+    .footer-column h3 {
+        font-size: 12px;
     }
 
     .footer-contact-list,
     .footer-document-list,
     .footer-social-list {
-        margin-top: 22px;
+        align-items: center;
+        margin-top: 14px;
+    }
+
+    .footer-contact-list {
+        gap: 13px;
+    }
+
+    .footer-contact {
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-contact-label {
+        justify-content: center;
+        gap: 5px;
+        font-size: 9px;
+    }
+
+    .footer-icon-slot,
+    .footer-social-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .footer-contact a {
+        font-size: 9px;
+    }
+
+    .footer-document-list {
+        gap: 13px;
+    }
+
+    .footer-document-list a {
+        font-size: 9px;
+    }
+
+    .footer-social-list {
+        gap: 8px;
     }
 
     .footer-social-button {
-        width: 100%;
-        max-width: 177px;
+        width: 177px;
+        min-height: 34px;
+        padding: 0 12px;
+        justify-content: flex-start;
+        border-radius: 8px;
+        font-size: 9px;
+    }
+
+    .footer-social-icon {
+        width: 14px;
+        height: 14px;
     }
 }
