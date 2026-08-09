@@ -119,9 +119,15 @@ function Header() {
     const handleNavigation = (index, target) => {
         changeActiveItem(index);
 
-        document.getElementById(target)?.scrollIntoView({
+        const section = document.getElementById(target);
+        if (!section) return;
+
+        const offset = target === "tariffs" ? 100 : 80;
+        const targetPosition = section.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({
+            top: targetPosition,
             behavior: "smooth",
-            block: "start",
         });
     };
 
