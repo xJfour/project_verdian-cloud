@@ -11,8 +11,10 @@ const navigation = [
 function Header() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [indicator, setIndicator] = useState({ left: 5, width: 0 });
+    const [underlineVisible, setUnderlineVisible] = useState(true);
     const menuRef = useRef(null);
     const linkRefs = useRef([]);
+    const underlineTimer = useRef(null);
 
     useLayoutEffect(() => {
         const updateIndicator = () => {
@@ -35,6 +37,14 @@ function Header() {
 
         return () => window.removeEventListener("resize", updateIndicator);
     }, [activeIndex]);
+
+    useEffect(() => {
+        return () => {
+            if (underlineTimer.current) {
+                clearTimeout(underlineTimer.current);
+            }
+        };
+    }, []);
 
     useEffect(() => {
         const updateActiveSection = () => {
@@ -88,8 +98,26 @@ function Header() {
         };
     }, []);
 
+    const changeActiveItem = (index) => {
+        if (index === activeIndex) return;
+
+        setUnderlineVisible(false);
+
+        if (underlineTimer.current) {
+            clearTimeout(underlineTimer.current);
+        }
+
+        underlineTimer.current = setTimeout(() => {
+            setActiveIndex(index);
+
+            requestAnimationFrame(() => {
+                setUnderlineVisible(true);
+            });
+        }, 180);
+    };
+
     const handleNavigation = (index, target) => {
-        setActiveIndex(index);
+        changeActiveItem(index);
 
         document.getElementById(target)?.scrollIntoView({
             behavior: "smooth",
@@ -120,6 +148,11 @@ function Header() {
                                 width: indicator.width,
                                 transform: `translateX(${indicator.left}px)`,
                             }}
+                            aria-hidden="true"
+                        />
+
+                        <span
+                            className={`menu-underline ${underlineVisible ? "is-visible" : ""}`}
                             aria-hidden="true"
                         />
 
