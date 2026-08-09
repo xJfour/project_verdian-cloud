@@ -94,7 +94,7 @@
   }
 
   .hero .container {
-    padding: 0 20px;
+    padding:0 20px;
   }
 
   .hero-content {
@@ -151,18 +151,18 @@
     max-width: none;
     height: auto;
     top: auto;
-    bottom: 0;
+    bottom: -50px;
   }
 
   .hero-server {
     width: 320px;
     height: auto;
-    bottom: 35px;
+    bottom: 0px;
   }
 
   .server-gradient {
     width: 320px;
-    bottom: 35px;
+    bottom: 0px;
   }
 
   .hero-lines-left,
