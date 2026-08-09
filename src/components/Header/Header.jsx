@@ -12,6 +12,7 @@ function Header() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [indicator, setIndicator] = useState({ left: 5, width: 0 });
     const [underlineVisible, setUnderlineVisible] = useState(true);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const menuRef = useRef(null);
     const linkRefs = useRef([]);
     const underlineTimer = useRef(null);
@@ -118,6 +119,7 @@ function Header() {
 
     const handleNavigation = (index, target) => {
         changeActiveItem(index);
+        setMobileMenuOpen(false);
 
         const section = document.getElementById(target);
         if (!section) return;
@@ -184,6 +186,34 @@ function Header() {
                         ))}
                     </ul>
                 </nav>
+
+                <button
+                    className={`mobile-menu-toggle ${mobileMenuOpen ? "is-open" : ""}`}
+                    type="button"
+                    aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
+                    aria-expanded={mobileMenuOpen}
+                    onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
+
+                <div className={`mobile-menu ${mobileMenuOpen ? "is-open" : ""}`}>
+                    {navigation.map((item, index) => (
+                        <a
+                            key={item.target}
+                            href={`#${item.target}`}
+                            className={activeIndex === index ? "active" : ""}
+                            onClick={(event) => {
+                                event.preventDefault();
+                                handleNavigation(index, item.target);
+                            }}
+                        >
+                            {item.label}
+                        </a>
+                    ))}
+                </div>
 
                 <div className="header-actions">
                     <button className="btn btn-outline">Регистрация</button>
